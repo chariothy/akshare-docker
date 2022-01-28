@@ -5,6 +5,17 @@ name: CI
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning' 
+        type: choice
+        options:
+        - info
+        - warning
+        - debug 
   schedule:
     # Runs "At 09:00 on Monday" (see https://crontab.guru)
     - cron: '0 9 * * 1'
